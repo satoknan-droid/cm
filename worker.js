@@ -1,7 +1,9 @@
 // Cloudflare Worker - CloudMoon Proxy with Multi-Layer Shadow DOM Protection + Ad Blocking
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
-});
+export default {
+  async fetch(request) {
+    return handleRequest(request);
+  }
+};
 
 // Common ad domains and patterns to block
 const AD_PATTERNS = [
